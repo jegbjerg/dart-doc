@@ -42,7 +42,7 @@
 
 (defun dart-doc--markdown (element-description dartdoc)
   "Display parsed documentation in a Markdown-buffer."
-  (display-buffer-below-selected dart-doc--buffer nil)
+  ;; (display-buffer-below-selected dart-doc--buffer nil)
   (with-current-buffer dart-doc--buffer
     (funcall 'markdown-mode)
     (erase-buffer)
@@ -54,8 +54,9 @@
           (insert "\n\n")))
       (when dartdoc-available
         (insert dartdoc))
-      (maximize-window window)
-      (shrink-window-if-larger-than-buffer window))))
+      (display-buffer (current-buffer)))))
+      ;; (maximize-window window)
+      ;; (shrink-window-if-larger-than-buffer window))))
 
 (provide 'dart-doc)
      
